@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --pink: #FFC0CB;
   --pink-strong: #ff8fa3;
   --white-bone: #F3F6F4;
@@ -91,14 +91,42 @@ body {
   box-shadow: 0 10px 25px rgba(255,192,203,0.4);
 }
 
+/* cinematic landing exit */
 .landing.fade-out {
-  animation: fadeOut 0.8s forwards;
+  animation: landingFadeOut 1.25s ease forwards;
 }
 
-@keyframes fadeOut {
+.landing.fade-out .landing-bg {
+  animation: landingZoomOut 1.25s ease forwards;
+}
+
+.landing.fade-out .landing-content {
+  animation: landingContentOut 0.85s ease forwards;
+}
+
+@keyframes landingFadeOut {
   to {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+@keyframes landingZoomOut {
+  from {
+    transform: scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    transform: scale(1.12);
+    filter: blur(6px);
+  }
+}
+
+@keyframes landingContentOut {
+  to {
+    opacity: 0;
+    transform: translateY(-22px) scale(0.96);
   }
 }
 
@@ -112,6 +140,94 @@ body {
   to { opacity: 1; }
 }
 
+/* CINEMATIC MAIN OPENING */
+.invitation-page.opening-main .intro-section {
+  animation: mainPageReveal 2.2s ease both;
+}
+
+.invitation-page.opening-main .intro-bg {
+  animation: bgCinematicReveal 2.4s ease both;
+}
+
+.invitation-page.opening-main .invite-text {
+  animation: textFloatIn 1.2s ease 0.65s both;
+}
+
+.invitation-page.opening-main .portrait-frame {
+  animation: portraitCinematicReveal 1.8s cubic-bezier(.2,.8,.2,1) 0.25s both;
+}
+
+.invitation-page.opening-main .birthday-name {
+  animation: textFloatIn 1.2s ease 1.15s both;
+}
+
+.invitation-page.opening-main .family-text {
+  animation: textFloatIn 1.2s ease 1.35s both;
+}
+
+@keyframes mainPageReveal {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  45% {
+    opacity: 1;
+    filter: blur(3px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes bgCinematicReveal {
+  0% {
+    transform: scale(1.18);
+    filter: blur(10px) brightness(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes portraitCinematicReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.35) translateY(34px);
+    filter: blur(14px) brightness(1.2);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(1.08) translateY(0);
+    filter: blur(3px) brightness(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes textFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 /* INTRO */
 .intro-section {
   position: relative;
@@ -120,6 +236,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .intro-bg {
@@ -185,6 +302,34 @@ body {
   padding: 60px 20px;
 }
 
+.section-header {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: "Cinzel", serif;
+  color: var(--pink-strong);
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: clamp(28px, 7vw, 50px);
+  color: var(--text-dark);
+}
+
+.lead {
+  color: #777;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
 .arrival-map {
   display: flex;
   flex-direction: column;
@@ -223,7 +368,7 @@ body {
   align-self: center;
 }
 
-/* 🎵 FLOATING MUSIC BUTTON */
+/* MUSIC BUTTON */
 .floating-music-btn {
   position: fixed;
   bottom: 20px;
@@ -244,7 +389,6 @@ body {
   transition: 0.2s ease;
 }
 
-/* ONLY animate when active */
 .floating-music-btn.active {
   background: var(--pink-strong);
   box-shadow: 0 0 18px rgba(255,192,203,0.9);
