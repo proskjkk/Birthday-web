@@ -1,4 +1,4 @@
-﻿const landing = document.getElementById("landing");
+const landing = document.getElementById("landing");
 const invitationPage = document.getElementById("invitationPage");
 const openInvitation = document.getElementById("openInvitation");
 
@@ -7,39 +7,42 @@ const floatingBtn = document.getElementById("floating-music-btn");
 
 let isPlaying = false;
 
-// OPEN INVITATION
 openInvitation.addEventListener("click", async () => {
   landing.classList.add("fade-out");
 
   setTimeout(() => {
     landing.style.display = "none";
     invitationPage.classList.remove("hidden");
+    invitationPage.classList.add("opening-main");
     window.scrollTo(0, 0);
-  }, 800);
+  }, 850);
+
+  setTimeout(() => {
+    invitationPage.classList.remove("opening-main");
+  }, 3300);
 
   try {
+    music.volume = 0.7;
     await music.play();
     isPlaying = true;
-    floatingBtn.classList.add("active"); // animation ON
+    floatingBtn.classList.add("active");
   } catch (err) {
     console.log(err);
   }
 });
 
-// TOGGLE MUSIC
 floatingBtn.addEventListener("click", async () => {
   if (isPlaying) {
     music.pause();
-    floatingBtn.classList.remove("active"); // animation OFF
+    floatingBtn.classList.remove("active");
   } else {
     await music.play();
-    floatingBtn.classList.add("active"); // animation ON
+    floatingBtn.classList.add("active");
   }
 
   isPlaying = !isPlaying;
 });
 
-// SCROLL REVEAL
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
