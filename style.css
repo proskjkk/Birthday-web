@@ -280,9 +280,17 @@ body {
 }
 
 .birthday-name {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(40px, 10vw, 70px);
-  color: var(--rose-dark);
+  font-family: "Allura", cursive; /* ✅ new font */
+  font-size: clamp(48px, 11vw, 90px);
+  color: #000; /* black like reference */
+  line-height: 1;
+  letter-spacing: 1px;
+
+  /* smoother elegant look */
+  font-weight: 400;
+
+  /* remove heavy glow, keep clean */
+  text-shadow: none;
 }
 
 .family-text {
