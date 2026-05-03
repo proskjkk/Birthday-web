@@ -280,19 +280,21 @@ body {
 }
 
 .birthday-name {
-  font-family: "Allura", cursive; /* ✅ new font */
-  font-size: clamp(48px, 11vw, 90px);
-  color: #000; /* black like reference */
+  font-family: "Tangerine", cursive;
+  font-weight: 700; /* IMPORTANT → makes it readable */
+  font-size: clamp(64px, 14vw, 110px);
+
+  color: #000;
   line-height: 1;
-  letter-spacing: 1px;
 
-  /* smoother elegant look */
-  font-weight: 400;
+  /* spacing tweak (Tangerine needs breathing space) */
+  letter-spacing: 2px;
 
-  /* remove heavy glow, keep clean */
-  text-shadow: none;
+  /* subtle elegance */
+  text-shadow: 
+    0 2px 6px rgba(0,0,0,0.15),
+    0 0 10px rgba(255,255,255,0.6);
 }
-
 .family-text {
   font-family: "Cinzel", serif;
 }
