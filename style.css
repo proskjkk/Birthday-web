@@ -4,16 +4,11 @@
   --white-bone: #F3F6F4;
   --white: #ffffff;
   --text-dark: #2f2f2f;
-  --soft-grey: #d8d8d8;
   --rose-dark: #8f1f35;
 }
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -28,418 +23,246 @@ body {
   display: none;
 }
 
-/* LANDING */
+/* ================= LANDING ================= */
+
 .landing {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  overflow: hidden;
-  background: var(--white-bone);
 }
 
 .landing-bg {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(rgba(255,255,255,0.7), rgba(255,192,203,0.35)),
-    url("black.png");
-  background-size: cover;
-  background-position: center;
+  background: url("black.png") center/cover;
+  filter: brightness(1.05);
 }
 
 .landing-content {
   position: relative;
-  z-index: 5;
+  z-index: 2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 40px;
   text-align: center;
-  padding: 32px;
 }
 
+/* TITLE ABOVE NAME */
 .landing-small {
   font-family: "Cinzel", serif;
-  font-size: clamp(26px, 6vw, 42px);
+  font-size: clamp(20px, 5vw, 36px);
   letter-spacing: 6px;
-  line-height: 1.4;
-  color: var(--pink-strong);
-  font-weight: 700;
-  margin: 0 0 110px;
-  text-shadow: 0 0 10px rgba(255,192,203,0.6);
+  color: #444;
 }
 
+/* 🔥 FIXED NAME FONT */
 .landing-content h1 {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(95px, 18vw, 160px);
-  color: var(--pink-strong);
-  margin: 0 0 160px;
-  line-height: 0.9;
-  text-shadow: 0 0 20px rgba(255,192,203,0.6);
+  font-family: "Grey Qo", cursive;
+  font-size: clamp(90px, 20vw, 180px);
+  color: #000;
+  line-height: 1;
+  letter-spacing: 2px;
+  font-weight: 400;
+  text-shadow: none; /* clean look */
 }
 
+/* BUTTON */
 .landing-btn {
+  padding: 18px 50px;
   border-radius: 999px;
-  padding: 20px 56px;
+  border: none;
   background: var(--pink);
   color: white;
   font-weight: 700;
-  border: none;
   cursor: pointer;
-  font-size: 18px;
-  box-shadow: 0 10px 25px rgba(255,192,203,0.4);
 }
 
-/* cinematic landing exit */
+/* EXIT ANIMATION */
 .landing.fade-out {
-  animation: landingFadeOut 1.25s ease forwards;
+  animation: fadeOut 1s forwards;
 }
 
-.landing.fade-out .landing-bg {
-  animation: landingZoomOut 1.25s ease forwards;
-}
-
-.landing.fade-out .landing-content {
-  animation: landingContentOut 0.85s ease forwards;
-}
-
-@keyframes landingFadeOut {
+@keyframes fadeOut {
   to {
     opacity: 0;
     visibility: hidden;
   }
 }
 
-@keyframes landingZoomOut {
-  from {
-    transform: scale(1);
-    filter: blur(0);
-  }
+/* ================= INTRO ================= */
 
-  to {
-    transform: scale(1.12);
-    filter: blur(6px);
-  }
-}
-
-@keyframes landingContentOut {
-  to {
-    opacity: 0;
-    transform: translateY(-22px) scale(0.96);
-  }
-}
-
-/* MAIN */
-.invitation-page {
-  animation: fadeIn 0.7s ease both;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* CINEMATIC MAIN OPENING */
-.invitation-page.opening-main .intro-section {
-  animation: mainPageReveal 2.2s ease both;
-}
-
-.invitation-page.opening-main .intro-bg {
-  animation: bgCinematicReveal 2.4s ease both;
-}
-
-.invitation-page.opening-main .invite-text {
-  animation: textFloatIn 1.2s ease 0.65s both;
-}
-
-.invitation-page.opening-main .portrait-frame {
-  animation: portraitCinematicReveal 1.8s cubic-bezier(.2,.8,.2,1) 0.25s both;
-}
-
-.invitation-page.opening-main .birthday-name {
-  animation: textFloatIn 1.2s ease 1.15s both;
-}
-
-.invitation-page.opening-main .family-text {
-  animation: textFloatIn 1.2s ease 1.35s both;
-}
-
-@keyframes mainPageReveal {
-  0% {
-    opacity: 0;
-    filter: blur(10px);
-  }
-
-  45% {
-    opacity: 1;
-    filter: blur(3px);
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-@keyframes bgCinematicReveal {
-  0% {
-    transform: scale(1.18);
-    filter: blur(10px) brightness(1.25);
-  }
-
-  100% {
-    transform: scale(1);
-    filter: blur(0) brightness(1);
-  }
-}
-
-@keyframes portraitCinematicReveal {
-  0% {
-    opacity: 0;
-    transform: scale(1.35) translateY(34px);
-    filter: blur(14px) brightness(1.2);
-  }
-
-  55% {
-    opacity: 1;
-    transform: scale(1.08) translateY(0);
-    filter: blur(3px) brightness(1.08);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0) brightness(1);
-  }
-}
-
-@keyframes textFloatIn {
-  0% {
-    opacity: 0;
-    transform: translateY(26px);
-    filter: blur(8px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-/* INTRO */
 .intro-section {
   position: relative;
   min-height: 100vh;
-  padding: 80px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .intro-bg {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.75), rgba(243,246,244,0.9)),
-    url("black.png");
-  background-size: cover;
-  background-position: center;
+    linear-gradient(rgba(255,255,255,0.7), rgba(243,246,244,0.9)),
+    url("black.png") center/cover;
 }
 
 .intro-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 720px;
 }
 
 .invite-text {
   font-family: "Cinzel", serif;
-  font-size: clamp(20px, 5vw, 30px);
-  line-height: 1.4;
-  margin-bottom: 40px;
+  font-size: 24px;
+  margin-bottom: 30px;
 }
 
 .portrait-frame {
-  width: 300px;
-  height: 400px;
-  margin: 0 auto 30px;
-  border-radius: 10px;
+  width: 260px;
+  height: 360px;
+  margin: 0 auto 20px;
   padding: 4px;
-  background: linear-gradient(135deg, white, var(--pink));
+  border-radius: 10px;
+  background: linear-gradient(white, var(--pink));
 }
 
 .portrait-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 .birthday-name {
   font-family: "Grey Qo", cursive;
-  font-size: clamp(64px, 14vw, 120px);
-
-  color: #000;
-  line-height: 1.05;
-
-  /* Grey Qo needs spacing to look elegant */
-  letter-spacing: 2px;
-
-  /* improve readability */
-  font-weight: 400;
-
-  /* subtle premium shadow */
-  text-shadow:
-    0 2px 6px rgba(0,0,0,0.15),
-    0 0 12px rgba(255,255,255,0.7);
+  font-size: 70px;
+  color: var(--rose-dark);
 }
 
-.family-text h3 {
-  margin: 5px 0;
+.family-text {
+  font-family: "Cinzel", serif;
 }
 
-.sister-label {
-  margin-top: 20px;
-}
+/* ================= EVENT CARD ================= */
 
-/* MAP */
-.section {
+.event-section {
+  display: flex;
+  justify-content: center;
   padding: 60px 20px;
 }
 
-.section-header {
-  max-width: 760px;
-  margin: 0 auto 32px;
+.event-card {
+  width: 90%;
+  max-width: 520px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 40px;
+  padding: 30px;
   text-align: center;
 }
 
-.eyebrow {
-  margin: 0 0 10px;
-  font-family: "Cinzel", serif;
-  color: var(--pink-strong);
-  letter-spacing: 3px;
-  font-weight: 700;
-  text-transform: uppercase;
+.event-date {
+  font-size: 22px;
 }
 
-.section-header h2 {
-  margin: 0;
-  font-family: "Cinzel", serif;
-  font-size: clamp(28px, 7vw, 50px);
-  color: var(--text-dark);
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.lead {
-  color: #777;
-  font-size: 18px;
-  line-height: 1.6;
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #333;
 }
+
+.event-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.event-icon {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.count-box {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* ================= MAP ================= */
 
 .arrival-map {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.map-frame {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 40px 20px;
 }
 
 .real-map iframe {
   width: 100%;
-  height: 420px;
-  border: none;
-  display: block;
-}
-
-/* BUTTON */
-.btn {
-  background: var(--pink);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
+  height: 350px;
+  border-radius: 20px;
 }
 
 .map-open-btn {
-  align-self: center;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }
 
-/* MUSIC BUTTON */
+/* ================= MUSIC BUTTON ================= */
+
 .floating-music-btn {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  z-index: 999;
-  width: 56px;
-  height: 56px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   border: none;
   background: var(--pink);
   color: white;
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
-  cursor: pointer;
-  transition: 0.2s ease;
+  font-size: 20px;
 }
 
+/* animate ONLY when active */
 .floating-music-btn.active {
-  background: var(--pink-strong);
-  box-shadow: 0 0 18px rgba(255,192,203,0.9);
-  animation: musicBounce 2.4s ease-in-out infinite;
+  animation: bounce 2s infinite;
 }
 
-@keyframes musicBounce {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-4px); }
-  50%  { transform: translateX(4px); }
-  75%  { transform: translateX(-2px); }
+@keyframes bounce {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
   100% { transform: translateX(0); }
 }
 
-/* REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.8s ease;
-}
+/* ================= MOBILE ================= */
 
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* MOBILE */
 @media (max-width: 768px) {
-  .portrait-frame {
-    width: 250px;
-    height: 330px;
-  }
-
   .landing-content h1 {
-    font-size: 90px;
+    font-size: 100px;
   }
 
-  .real-map iframe {
-    height: 360px;
-  }
-
-  .map-open-btn {
-    width: 100%;
+  .portrait-frame {
+    width: 200px;
+    height: 280px;
   }
 }
