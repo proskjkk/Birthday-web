@@ -2,12 +2,17 @@
   --pink: #FFC0CB;
   --pink-strong: #ff8fa3;
   --white-bone: #F3F6F4;
+  --white: #ffffff;
   --text-dark: #2f2f2f;
   --rose-dark: #8f1f35;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,12 +33,13 @@ body {
   position: fixed;
   inset: 0;
   z-index: 9999;
+  overflow: hidden;
 }
 
 .landing-bg {
   position: absolute;
   inset: 0;
-  background: url("black.png") center/cover;
+  background: url("black.png") center/cover no-repeat;
   filter: brightness(1.05);
 }
 
@@ -54,41 +60,42 @@ body {
 }
 
 .landing-small {
+  margin: 0;
   font-family: "Cinzel", serif;
   font-size: clamp(20px, 5vw, 36px);
   letter-spacing: 6px;
   color: #444;
 
-  /* move title up only */
-  transform: translateY(-30px);
+  transform: translateY(-70px);
 }
 
 .landing-content h1 {
+  margin: 0;
   font-family: "Grey Qo", cursive;
-  font-size: clamp(90px, 20vw, 180px);
+  font-size: clamp(100px, 22vw, 190px);
   color: #000;
-  line-height: 1;
+  line-height: 0.85;
   letter-spacing: 2px;
   font-weight: 400;
 
-  /* move name up only */
-  transform: translateY(-40px);
+  transform: translateY(-95px);
 }
 
 /* GLASS BUTTON */
 .landing-btn {
-  margin-top: 40px;
+  margin-top: 0;
 
   padding: 16px 48px;
   border-radius: 999px;
 
   background: rgba(255,255,255,0.18);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   border: 1.5px solid #000;
   color: #000;
 
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: 0.25s ease;
 }
@@ -110,14 +117,114 @@ body {
   }
 }
 
+/* ================= MAIN OPENING ANIMATION ================= */
+
+.invitation-page {
+  animation: fadeIn 0.7s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.invitation-page.opening-main .intro-section {
+  animation: mainPageReveal 2.2s ease both;
+}
+
+.invitation-page.opening-main .intro-bg {
+  animation: bgCinematicReveal 2.4s ease both;
+}
+
+.invitation-page.opening-main .invite-text {
+  animation: textFloatIn 1.2s ease 0.65s both;
+}
+
+.invitation-page.opening-main .portrait-frame {
+  animation: portraitCinematicReveal 1.8s cubic-bezier(.2,.8,.2,1) 0.25s both;
+}
+
+.invitation-page.opening-main .birthday-name {
+  animation: textFloatIn 1.2s ease 1.15s both;
+}
+
+.invitation-page.opening-main .family-text {
+  animation: textFloatIn 1.2s ease 1.35s both;
+}
+
+@keyframes mainPageReveal {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  45% {
+    opacity: 1;
+    filter: blur(3px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes bgCinematicReveal {
+  0% {
+    transform: scale(1.18);
+    filter: blur(10px) brightness(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes portraitCinematicReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.35) translateY(34px);
+    filter: blur(14px) brightness(1.2);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(1.08) translateY(0);
+    filter: blur(3px) brightness(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes textFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 /* ================= INTRO ================= */
 
 .intro-section {
   position: relative;
   min-height: 100vh;
+  padding: 80px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .intro-bg {
@@ -125,25 +232,27 @@ body {
   inset: 0;
   background:
     linear-gradient(rgba(255,255,255,0.7), rgba(243,246,244,0.9)),
-    url("black.png") center/cover;
+    url("black.png") center/cover no-repeat;
 }
 
 .intro-content {
   position: relative;
   z-index: 2;
+  width: min(720px, 100%);
   text-align: center;
 }
 
 .invite-text {
   font-family: "Cinzel", serif;
-  font-size: 24px;
-  margin-bottom: 30px;
+  font-size: clamp(20px, 5vw, 30px);
+  line-height: 1.4;
+  margin: 0 0 38px;
 }
 
 .portrait-frame {
-  width: 260px;
-  height: 360px;
-  margin: 0 auto 20px;
+  width: 300px;
+  height: 400px;
+  margin: 0 auto 30px;
   padding: 4px;
   border-radius: 10px;
   background: linear-gradient(white, var(--pink));
@@ -152,78 +261,279 @@ body {
 .portrait-frame img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .birthday-name {
   font-family: "Grey Qo", cursive;
-  font-size: 70px;
-  color: var(--rose-dark);
+  font-size: clamp(70px, 15vw, 130px);
+  color: #000;
+  line-height: 0.9;
+  margin: 0 0 18px;
+}
+
+.family-text {
+  font-family: "Cinzel", serif;
+}
+
+.family-text p {
+  margin: 0 0 8px;
+  font-size: clamp(18px, 4vw, 24px);
+}
+
+.family-text h3 {
+  margin: 6px 0;
+  font-size: clamp(22px, 5vw, 32px);
+}
+
+.sister-label {
+  margin-top: 20px !important;
 }
 
 /* ================= EVENT ================= */
 
 .event-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 70px 20px;
   display: flex;
   justify-content: center;
-  padding: 60px 20px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.event-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("black.png") center/cover no-repeat;
 }
 
 .event-card {
-  width: 90%;
-  max-width: 520px;
-  background: rgba(255,255,255,0.85);
-  border-radius: 40px;
-  padding: 30px;
+  position: relative;
+  z-index: 2;
+  width: min(560px, 94vw);
+  padding: 56px 28px;
+  border-radius: 999px 999px 48px 48px;
+  background: rgba(243,246,244,0.72);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   text-align: center;
+  font-family: "Cinzel", serif;
+}
+
+.event-card h2 {
+  margin: 0 0 24px;
+  font-size: clamp(34px, 8vw, 48px);
+  font-weight: 400;
 }
 
 .event-date {
-  font-size: 22px;
+  display: grid;
+  gap: 6px;
+  font-size: clamp(24px, 6vw, 34px);
+  line-height: 1.15;
+  margin-bottom: 22px;
 }
 
 .divider {
+  width: min(340px, 82%);
+  margin: 22px auto;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .divider span {
+  height: 2px;
   flex: 1;
-  height: 1px;
   background: #333;
 }
 
-/* ================= COUNTDOWN ================= */
+.event-location h3 {
+  margin: 0 0 8px;
+  font-size: clamp(19px, 5vw, 25px);
+}
+
+.event-location p {
+  margin: 0;
+  font-size: clamp(17px, 4.4vw, 23px);
+  line-height: 1.35;
+}
+
+.dresscode {
+  margin-top: 34px;
+}
+
+.dress-dot {
+  width: 72px;
+  height: 72px;
+  background: #000;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+}
+
+.event-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 34px 0 22px;
+}
+
+.event-icon {
+  width: 66px;
+  height: 66px;
+  border: 4px solid #222;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+}
+
+.event-map-btn,
+.save-date-btn {
+  width: min(300px, 82%);
+  min-height: 58px;
+  margin: 0 auto;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.86);
+  color: #222;
+  font-family: "Cinzel", serif;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 9px 22px rgba(0,0,0,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.countdown-wrapper {
+  margin-top: 38px;
+}
 
 .countdown {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  justify-content: center;
 }
 
 .count-box {
-  background: white;
-  padding: 10px;
+  min-height: 92px;
   border-radius: 10px;
+  background: rgba(255,255,255,0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* ================= MAP ================= */
+.count-box span {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.count-box small {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.save-date-btn {
+  margin-top: 30px;
+}
+
+/* ================= LOCATION / MAP — RESTORED ================= */
+
+.section {
+  padding: 80px 20px;
+  background:
+    linear-gradient(180deg, var(--white-bone), #ffffff);
+}
+
+.section-header {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: "Cinzel", serif;
+  color: var(--pink-strong);
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: clamp(30px, 7vw, 52px);
+  line-height: 1.1;
+  color: var(--text-dark);
+}
+
+.lead {
+  margin: 16px auto 0;
+  color: #777;
+  font-size: 18px;
+  line-height: 1.6;
+}
 
 .arrival-map {
-  padding: 40px 20px;
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.map-frame {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 18px 46px rgba(60,30,35,0.14),
+    0 0 0 1px rgba(255,255,255,0.85);
 }
 
 .real-map iframe {
   width: 100%;
-  height: 350px;
-  border-radius: 20px;
+  height: 430px;
+  border: none;
+  display: block;
+}
+
+.btn {
+  background: var(--pink);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "League Spartan", sans-serif;
+  box-shadow: 0 8px 20px rgba(255,192,203,0.35);
 }
 
 .map-open-btn {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
+  align-self: center;
+  margin-top: 0;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ================= MUSIC BUTTON ================= */
@@ -232,17 +542,23 @@ body {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 55px;
-  height: 55px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   border: none;
   background: var(--pink);
   color: white;
-  font-size: 20px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  cursor: pointer;
 }
 
-/* animate ONLY when active */
 .floating-music-btn.active {
+  background: var(--pink-strong);
   animation: bounce 2s infinite;
 }
 
@@ -252,20 +568,70 @@ body {
   100% { transform: translateX(0); }
 }
 
+/* ================= REVEAL ================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-  .landing-content h1 {
-    font-size: 110px;
-    transform: translateY(-40px);
+  .landing-small {
+    transform: translateY(-85px);
   }
 
-  .landing-small {
-    transform: translateY(-30px);
+  .landing-content h1 {
+    font-size: 128px;
+    transform: translateY(-115px);
+  }
+
+  .landing-btn {
+    margin-top: 0;
   }
 
   .portrait-frame {
-    width: 200px;
-    height: 280px;
+    width: 250px;
+    height: 330px;
+  }
+
+  .section {
+    padding: 76px 20px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .real-map iframe {
+    height: 360px;
+  }
+
+  .map-open-btn {
+    width: 100%;
+  }
+
+  .countdown {
+    gap: 8px;
+  }
+
+  .count-box {
+    min-height: 82px;
+  }
+
+  .count-box span {
+    font-size: 24px;
+  }
+
+  .count-box small {
+    font-size: 14px;
   }
 }
