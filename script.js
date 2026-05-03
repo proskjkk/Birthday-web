@@ -43,6 +43,7 @@ floatingBtn.addEventListener("click", async () => {
   isPlaying = !isPlaying;
 });
 
+/* COUNTDOWN */
 const eventDate = new Date("2026-06-06T17:30:00+07:00").getTime();
 
 function updateCountdown() {
@@ -73,6 +74,7 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+/* LOOP SCROLL ANIMATION */
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
@@ -80,10 +82,14 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show");
       }
     });
   },
-  { threshold: 0.15 }
+  {
+    threshold: 0.18
+  }
 );
 
 reveals.forEach(el => observer.observe(el));
