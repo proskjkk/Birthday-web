@@ -1,10 +1,33 @@
-/* ================= LANDING (ADJUSTED) ================= */
+:root {
+  --pink: #FFC0CB;
+  --pink-strong: #ff8fa3;
+  --white-bone: #F3F6F4;
+  --text-dark: #2f2f2f;
+  --rose-dark: #8f1f35;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "League Spartan", sans-serif;
+  background: var(--white-bone);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ================= LANDING ================= */
 
 .landing {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  overflow: hidden;
 }
 
 .landing-bg {
@@ -20,14 +43,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* 🔥 move content upward */
   align-items: center;
+  justify-content: flex-start;
   text-align: center;
-  padding-top: 120px; /* 🔥 push everything up */
-  gap: 28px;
+
+  padding-top: 120px; /* 🔥 push content upward */
+  gap: 24px;
 }
 
-/* TOP TEXT */
 .landing-small {
   font-family: "Cinzel", serif;
   font-size: clamp(20px, 5vw, 36px);
@@ -35,7 +58,7 @@
   color: #444;
 }
 
-/* NAME (raised position) */
+/* NAME (UPPER POSITION) */
 .landing-content h1 {
   font-family: "Grey Qo", cursive;
   font-size: clamp(90px, 20vw, 180px);
@@ -43,21 +66,197 @@
   line-height: 1;
   letter-spacing: 2px;
   font-weight: 400;
-  margin-top: -20px; /* 🔥 slight upward tweak */
+
+  margin-top: -20px;
 }
 
-/* 🔥 NEW BUTTON STYLE (BLUR GLASS) */
+/* 🔥 GLASS BUTTON */
 .landing-btn {
-  margin-top: auto; /* push button to bottom */
+  margin-top: auto;
   margin-bottom: 60px;
 
   padding: 16px 48px;
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.15); /* transparent glass */
+  background: rgba(255,255,255,0.18);
   backdrop-filter: blur(10px);
 
-  border: 1.5px solid #000; /* black outline */
+  border: 1.5px solid #000;
   color: #000;
 
-  font-family: "League
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.landing-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.28);
+}
+
+/* EXIT */
+.landing.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ================= INTRO ================= */
+
+.intro-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.7), rgba(243,246,244,0.9)),
+    url("black.png") center/cover;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.invite-text {
+  font-family: "Cinzel", serif;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.portrait-frame {
+  width: 260px;
+  height: 360px;
+  margin: 0 auto 20px;
+  padding: 4px;
+  border-radius: 10px;
+  background: linear-gradient(white, var(--pink));
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.birthday-name {
+  font-family: "Grey Qo", cursive;
+  font-size: 70px;
+  color: var(--rose-dark);
+}
+
+/* ================= EVENT ================= */
+
+.event-section {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.event-card {
+  width: 90%;
+  max-width: 520px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 40px;
+  padding: 30px;
+  text-align: center;
+}
+
+.event-date {
+  font-size: 22px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #333;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.count-box {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* ================= MAP ================= */
+
+.arrival-map {
+  padding: 40px 20px;
+}
+
+.real-map iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 20px;
+}
+
+.map-open-btn {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ================= MUSIC BUTTON ================= */
+
+.floating-music-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: var(--pink);
+  color: white;
+  font-size: 20px;
+}
+
+/* animate ONLY when active */
+.floating-music-btn.active {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .landing-content h1 {
+    font-size: 110px;
+  }
+
+  .portrait-frame {
+    width: 200px;
+    height: 280px;
+  }
+}
