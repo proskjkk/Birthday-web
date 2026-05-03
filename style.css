@@ -2,6 +2,7 @@
   --pink: #FFC0CB;
   --pink-strong: #ff8fa3;
   --white-bone: #F3F6F4;
+  --white: #ffffff;
   --text-dark: #2f2f2f;
   --rose-dark: #8f1f35;
 }
@@ -43,14 +44,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
+  gap: 40px;
   text-align: center;
-
-  padding-top: 120px; /* 🔥 push content upward */
-  gap: 24px;
 }
 
+/* TITLE ABOVE NAME */
 .landing-small {
   font-family: "Cinzel", serif;
   font-size: clamp(20px, 5vw, 36px);
@@ -58,7 +58,7 @@ body {
   color: #444;
 }
 
-/* NAME (UPPER POSITION) */
+/* 🔥 FIXED NAME FONT */
 .landing-content h1 {
   font-family: "Grey Qo", cursive;
   font-size: clamp(90px, 20vw, 180px);
@@ -66,35 +66,21 @@ body {
   line-height: 1;
   letter-spacing: 2px;
   font-weight: 400;
-
-  margin-top: -20px;
+  text-shadow: none; /* clean look */
 }
 
-/* 🔥 GLASS BUTTON */
+/* BUTTON */
 .landing-btn {
-  margin-top: auto;
-  margin-bottom: 60px;
-
-  padding: 16px 48px;
+  padding: 18px 50px;
   border-radius: 999px;
-
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(10px);
-
-  border: 1.5px solid #000;
-  color: #000;
-
-  font-weight: 600;
+  border: none;
+  background: var(--pink);
+  color: white;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.25s ease;
 }
 
-.landing-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.28);
-}
-
-/* EXIT */
+/* EXIT ANIMATION */
 .landing.fade-out {
   animation: fadeOut 1s forwards;
 }
@@ -157,7 +143,11 @@ body {
   color: var(--rose-dark);
 }
 
-/* ================= EVENT ================= */
+.family-text {
+  font-family: "Cinzel", serif;
+}
+
+/* ================= EVENT CARD ================= */
 
 .event-section {
   display: flex;
@@ -188,6 +178,22 @@ body {
   flex: 1;
   height: 1px;
   background: #333;
+}
+
+.event-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.event-icon {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ================= COUNTDOWN ================= */
@@ -252,7 +258,7 @@ body {
 
 @media (max-width: 768px) {
   .landing-content h1 {
-    font-size: 110px;
+    font-size: 100px;
   }
 
   .portrait-frame {
