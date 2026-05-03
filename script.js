@@ -43,6 +43,36 @@ floatingBtn.addEventListener("click", async () => {
   isPlaying = !isPlaying;
 });
 
+const eventDate = new Date("2026-06-06T17:30:00+07:00").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  if (distance <= 0) {
+    daysEl.textContent = "0";
+    hoursEl.textContent = "0";
+    minutesEl.textContent = "0";
+    secondsEl.textContent = "0";
+    return;
+  }
+
+  daysEl.textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+  hoursEl.textContent = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  minutesEl.textContent = Math.floor((distance / (1000 * 60)) % 60);
+  secondsEl.textContent = Math.floor((distance / 1000) % 60);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
