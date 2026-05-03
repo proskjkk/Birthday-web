@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Emma's Birthday Invitation</title>
 
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/07ee57cae1.js" crossorigin="anonymous"></script>
 
+  <!-- Bootstrap Icons (NEW) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -19,6 +24,7 @@
 
 <body>
 
+  <!-- LANDING -->
   <section id="landing" class="landing">
     <div class="landing-bg"></div>
 
@@ -29,12 +35,15 @@
     </div>
   </section>
 
+  <!-- MAIN PAGE -->
   <div id="invitationPage" class="invitation-page hidden">
 
+    <!-- MUSIC BUTTON -->
     <button id="floating-music-btn" class="floating-music-btn">
       <i class="fa-solid fa-music"></i>
     </button>
 
+    <!-- INTRO -->
     <section class="intro-section reveal">
       <div class="intro-bg"></div>
 
@@ -62,6 +71,7 @@
       </div>
     </section>
 
+    <!-- EVENT -->
     <section class="event-section reveal">
       <div class="event-bg"></div>
 
@@ -87,6 +97,7 @@
           </p>
         </div>
 
+        <!-- DRESSCODE -->
         <div class="dresscode">
           <h3>Dresscode:</h3>
 
@@ -103,29 +114,36 @@
           </div>
         </div>
 
+        <!-- ICONS -->
         <div class="event-icons">
+
+          <!-- ❌ FLOWER (BOOTSTRAP ICON) -->
           <div class="event-icon crossed">
-            <i class="fa-solid fa-seedling"></i>
+            <i class="bi bi-flower1"></i>
           </div>
 
+          <!-- ❌ GIFT -->
           <div class="event-icon crossed">
             <i class="fa-solid fa-gift"></i>
           </div>
 
+          <!-- ✅ ENVELOPE -->
           <div class="event-icon">
             <i class="fa-solid fa-envelope"></i>
           </div>
+
         </div>
 
+        <!-- MAP BUTTON -->
         <a
           class="event-map-btn"
           href="https://www.google.com/maps/search/?api=1&query=-7.2808042,112.7703403"
-          target="_blank"
-          rel="noopener noreferrer">
+          target="_blank">
           <i class="fa-solid fa-location-dot"></i>
           Open GMAPS
         </a>
 
+        <!-- COUNTDOWN -->
         <div class="countdown-wrapper">
           <p>Countdown to <strong>Event</strong></p>
 
@@ -152,17 +170,19 @@
           </div>
         </div>
 
+        <!-- SAVE DATE -->
         <a
           class="save-date-btn"
           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emmanuella%20Sereene%20Davero%20Sweet%2017th%20Birthday&dates=20260606T103000Z/20260606T133000Z&details=Emmanuella%20Sereene%20Davero%27s%20Sweet%2017th%20Birthday&location=Swiss-Belinn%20Manyar%20Surabaya"
-          target="_blank"
-          rel="noopener noreferrer">
+          target="_blank">
           <i class="fa-regular fa-calendar-plus"></i>
           Save the Date
         </a>
+
       </div>
     </section>
 
+    <!-- LOCATION -->
     <section class="section arrival reveal">
       <div class="section-header">
         <p class="eyebrow">Location</p>
@@ -182,8 +202,7 @@
         <a
           class="btn map-open-btn"
           href="https://www.google.com/maps/search/?api=1&query=-7.2808042,112.7703403"
-          target="_blank"
-          rel="noopener noreferrer">
+          target="_blank">
           Open in Google Maps
         </a>
       </div>
