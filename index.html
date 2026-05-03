@@ -1,19 +1,16 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Emma's Birthday Invitation</title>
 
-  <!-- FONT AWESOME -->
   <script src="https://kit.fontawesome.com/07ee57cae1.js" crossorigin="anonymous"></script>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=League+Spartan:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Grey+Qo&family=League+Spartan:wght@300;400;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -22,9 +19,9 @@
 
 <body>
 
-  <!-- LANDING -->
   <section id="landing" class="landing">
     <div class="landing-bg"></div>
+
     <div class="landing-content">
       <p class="landing-small">THE SWEET SEVENTEEN OF</p>
       <h1>Emma</h1>
@@ -32,15 +29,12 @@
     </div>
   </section>
 
-  <!-- MAIN -->
   <div id="invitationPage" class="invitation-page hidden">
 
-    <!-- 🎵 FLOATING MUSIC BUTTON -->
     <button id="floating-music-btn" class="floating-music-btn">
       <i class="fa-solid fa-music"></i>
     </button>
 
-    <!-- INTRO -->
     <section class="intro-section reveal">
       <div class="intro-bg"></div>
 
@@ -55,9 +49,7 @@
           <img src="black.png" alt="Birthday girl" />
         </div>
 
-        <h2 class="birthday-name">
-          Emmanuella Sereene Davero
-        </h2>
+        <h2 class="birthday-name">Emmanuella Sereene Davero</h2>
 
         <div class="family-text">
           <p>Daughter of</p>
@@ -70,7 +62,107 @@
       </div>
     </section>
 
-    <!-- ✅ MAP SECTION (BACK) -->
+    <section class="event-section reveal">
+      <div class="event-bg"></div>
+
+      <div class="event-card">
+        <h2>Event</h2>
+
+        <div class="event-date">
+          <strong>Saturday, 06 June 2026</strong>
+          <span>17:30 WIB</span>
+        </div>
+
+        <div class="divider">
+          <span></span>
+          <i class="fa-solid fa-diamond"></i>
+          <span></span>
+        </div>
+
+        <div class="event-location">
+          <h3>Swiss-Belinn Manyar Surabaya</h3>
+          <p>
+            Jl. Manyar Kertoarjo No.100,<br>
+            Surabaya, Jawa Timur
+          </p>
+        </div>
+
+        <div class="dresscode">
+          <h3>Dresscode:</h3>
+
+          <div class="dress-colors">
+            <div class="dress-color">
+              <span class="color-dot beige"></span>
+              <p>Beige</p>
+            </div>
+
+            <div class="dress-color">
+              <span class="color-dot light-pink"></span>
+              <p>Light Pink</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-icons">
+          <div class="event-icon crossed">
+            <i class="fas fa-flower"></i>
+          </div>
+
+          <div class="event-icon crossed">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+
+          <div class="event-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+        </div>
+
+        <a
+          class="event-map-btn"
+          href="https://www.google.com/maps/search/?api=1&query=-7.2808042,112.7703403"
+          target="_blank"
+          rel="noopener noreferrer">
+          <i class="fa-solid fa-location-dot"></i>
+          Open GMAPS
+        </a>
+
+        <div class="countdown-wrapper">
+          <p>Countdown to <strong>Event</strong></p>
+
+          <div class="countdown">
+            <div class="count-box">
+              <span id="days">-</span>
+              <small>Days</small>
+            </div>
+
+            <div class="count-box">
+              <span id="hours">-</span>
+              <small>Hours</small>
+            </div>
+
+            <div class="count-box">
+              <span id="minutes">-</span>
+              <small>Minutes</small>
+            </div>
+
+            <div class="count-box">
+              <span id="seconds">-</span>
+              <small>Seconds</small>
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="save-date-btn"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emmanuella%20Sereene%20Davero%20Sweet%2017th%20Birthday&dates=20260606T103000Z/20260606T133000Z&details=Emmanuella%20Sereene%20Davero%27s%20Sweet%2017th%20Birthday&location=Swiss-Belinn%20Manyar%20Surabaya"
+          target="_blank"
+          rel="noopener noreferrer">
+          <i class="fa-regular fa-calendar-plus"></i>
+          Save the Date
+        </a>
+      </div>
+    </section>
+
     <section class="section arrival reveal">
       <div class="section-header">
         <p class="eyebrow">Location</p>
@@ -90,7 +182,8 @@
         <a
           class="btn map-open-btn"
           href="https://www.google.com/maps/search/?api=1&query=-7.2808042,112.7703403"
-          target="_blank">
+          target="_blank"
+          rel="noopener noreferrer">
           Open in Google Maps
         </a>
       </div>
