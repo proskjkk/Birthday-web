@@ -37,18 +37,21 @@ body {
   filter: brightness(1.05);
 }
 
+/* FIXED LAYOUT */
 .landing-content {
   position: relative;
   z-index: 2;
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  text-align: center;
+  justify-content: center; /* center everything */
 
-  padding-top: 120px; /* 🔥 push content upward */
-  gap: 24px;
+  text-align: center;
+  gap: 20px;
+
+  padding: 40px 20px;
 }
 
 .landing-small {
@@ -71,9 +74,9 @@ body {
 }
 
 /* 🔥 GLASS BUTTON */
+/* BUTTON POSITION FIX */
 .landing-btn {
-  margin-top: auto;
-  margin-bottom: 60px;
+  margin-top: 40px; /* 🔥 controlled spacing instead of pushing to bottom */
 
   padding: 16px 48px;
   border-radius: 999px;
