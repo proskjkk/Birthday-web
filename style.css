@@ -6,7 +6,7 @@
   --text-dark: #2f2f2f;
   --rose-dark: #8f1f35;
   --beige: #EDE8D0;
-  --light-pink: #FFB5C0;
+  --light-pink: #FFEFF1;
 }
 
 * {
@@ -49,15 +49,12 @@ body {
   position: relative;
   z-index: 2;
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   text-align: center;
   gap: 20px;
-
   padding: 40px 20px;
 }
 
@@ -67,7 +64,6 @@ body {
   font-size: clamp(20px, 5vw, 36px);
   letter-spacing: 6px;
   color: #444;
-
   transform: translateY(-70px);
 }
 
@@ -79,7 +75,6 @@ body {
   line-height: 0.85;
   letter-spacing: 2px;
   font-weight: 400;
-
   transform: translateY(-95px);
 }
 
@@ -87,14 +82,11 @@ body {
   margin-top: 0;
   padding: 16px 48px;
   border-radius: 999px;
-
   background: rgba(255,255,255,0.18);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
   border: 1.5px solid #000;
   color: #000;
-
   font-weight: 700;
   cursor: pointer;
   transition: 0.25s ease;
@@ -214,7 +206,7 @@ body {
   }
 }
 
-/* ================= INTRO PAGE FIXED ================= */
+/* ================= INTRO / YOU ARE INVITED PAGE ================= */
 
 .intro-section {
   position: relative;
@@ -297,7 +289,7 @@ body {
   margin-top: 20px !important;
 }
 
-/* ================= EVENT ================= */
+/* ================= EVENT PAGE ================= */
 
 .event-section {
   position: relative;
@@ -347,10 +339,7 @@ body {
   margin-bottom: 22px;
 }
 
-.event-date strong {
-  font-weight: 700;
-}
-
+.event-date strong,
 .event-date span {
   font-weight: 700;
 }
@@ -516,7 +505,7 @@ body {
   margin-top: 30px;
 }
 
-/* ================= LOCATION PAGE FIXED ================= */
+/* ================= LOCATION PAGE ================= */
 
 .section {
   padding: 80px 20px;
