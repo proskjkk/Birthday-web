@@ -54,14 +54,23 @@ body {
   padding: 40px 20px;
 }
 
-/* 🔥 MOVE TEXT UP WITHOUT BREAKING LAYOUT */
-
 .landing-small {
-  transform: translateY(-30px); /* adjust here */
+  font-family: "Cinzel", serif;
+  font-size: clamp(20px, 5vw, 36px);
+  letter-spacing: 6px;
+  color: #444;
 }
 
+/* NAME (UPPER POSITION) */
 .landing-content h1 {
-  transform: translateY(-40px); /* adjust here */
+  font-family: "Grey Qo", cursive;
+  font-size: clamp(90px, 20vw, 180px);
+  color: #000;
+  line-height: 1;
+  letter-spacing: 2px;
+  font-weight: 400;
+
+  margin-top: -20px;
 }
 
 /* 🔥 GLASS BUTTON */
