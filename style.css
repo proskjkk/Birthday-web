@@ -722,6 +722,8 @@ body {
   text-align: center;
   background: linear-gradient(180deg, #ffffff, var(--white-bone));
   color: var(--text-dark);
+  opacity: 1;
+  transform: none;
 }
 
 .site-footer p {
