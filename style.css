@@ -715,6 +715,36 @@ body {
   transform: none;
 }
 
+/* ================= FOOTER ================= */
+
+.site-footer {
+  padding: 54px 20px 80px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff, var(--white-bone));
+  color: var(--text-dark);
+}
+
+.site-footer p {
+  margin: 0 0 8px;
+  font-family: "Cinzel", serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.site-footer h3 {
+  margin: 0;
+  font-family: "Grey Qo", cursive;
+  font-size: clamp(44px, 10vw, 76px);
+  line-height: 0.9;
+  font-weight: 400;
+  color: #000;
+}
+
+
+
+
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
