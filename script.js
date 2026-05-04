@@ -5,7 +5,11 @@ const openInvitation = document.getElementById("openInvitation");
 const music = document.getElementById("bg-music");
 const floatingBtn = document.getElementById("floating-music-btn");
 
+const footer = document.querySelector(".site-footer");
+
 let isPlaying = false;
+
+/* ================= OPEN INVITATION ================= */
 
 openInvitation.addEventListener("click", async () => {
   landing.classList.add("fade-out");
@@ -31,6 +35,8 @@ openInvitation.addEventListener("click", async () => {
   }
 });
 
+/* ================= MUSIC ================= */
+
 floatingBtn.addEventListener("click", async () => {
   if (isPlaying) {
     music.pause();
@@ -43,7 +49,8 @@ floatingBtn.addEventListener("click", async () => {
   isPlaying = !isPlaying;
 });
 
-/* COUNTDOWN */
+/* ================= COUNTDOWN ================= */
+
 const eventDate = new Date("2026-06-06T17:30:00+07:00").getTime();
 
 function updateCountdown() {
@@ -55,7 +62,7 @@ function updateCountdown() {
   const minutesEl = document.getElementById("minutes");
   const secondsEl = document.getElementById("seconds");
 
-  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+  if (!daysEl) return;
 
   if (distance <= 0) {
     daysEl.textContent = "0";
@@ -74,7 +81,8 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* LOOP SCROLL ANIMATION - STABLE */
+/* ================= SCROLL ANIMATION ================= */
+
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
@@ -83,18 +91,24 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       } else {
-        const isOutfit = entry.target.classList.contains("outfit-section");
-
-        if (!isOutfit) {
-          entry.target.classList.remove("show");
-        }
+        entry.target.classList.remove("show");
       }
     });
   },
-  {
-    threshold: 0.08,
-    rootMargin: "0px 0px -8% 0px"
-  }
+  { threshold: 0.12 }
 );
 
 reveals.forEach(el => observer.observe(el));
+
+/* ================= FOOTER FIX ================= */
+
+/* Only show footer when near bottom */
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const pageHeight = document.body.scrollHeight;
+  const windowHeight = window.innerHeight;
+
+  if (scrollY + windowHeight > pageHeight - 150) {
+    footer.classList.add("show-footer");
+  }
+});
