@@ -722,8 +722,17 @@ body {
   text-align: center;
   background: linear-gradient(180deg, #ffffff, var(--white-bone));
   color: var(--text-dark);
+
+  /* FIX: hide initially */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+/* reveal when active */
+.site-footer.show-footer {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
 
 .site-footer p {
@@ -743,9 +752,6 @@ body {
   font-weight: 400;
   color: #000;
 }
-
-
-
 
 /* ================= MOBILE ================= */
 
