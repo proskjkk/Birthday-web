@@ -74,7 +74,7 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* LOOP SCROLL ANIMATION */
+/* LOOP SCROLL ANIMATION - STABLE */
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
@@ -83,12 +83,17 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       } else {
-        entry.target.classList.remove("show");
+        const isOutfit = entry.target.classList.contains("outfit-section");
+
+        if (!isOutfit) {
+          entry.target.classList.remove("show");
+        }
       }
     });
   },
   {
-    threshold: 0.18
+    threshold: 0.08,
+    rootMargin: "0px 0px -8% 0px"
   }
 );
 
