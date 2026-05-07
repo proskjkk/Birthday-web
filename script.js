@@ -334,8 +334,11 @@ window.addEventListener("scroll", () => {
 
 /* ================= PAUSE MUSIC WHEN TAB CLOSED / MINIMIZED ================= */
 
+let wasPlayingBeforeHidden = false;
+
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
+    wasPlayingBeforeHidden = isPlaying;
     music.pause();
     floatingBtn.classList.remove("active");
     isPlaying = false;
@@ -343,12 +346,14 @@ document.addEventListener("visibilitychange", () => {
 });
 
 window.addEventListener("pagehide", () => {
+  wasPlayingBeforeHidden = isPlaying;
   music.pause();
   floatingBtn.classList.remove("active");
   isPlaying = false;
 });
 
 window.addEventListener("blur", () => {
+  wasPlayingBeforeHidden = isPlaying;
   music.pause();
   floatingBtn.classList.remove("active");
   isPlaying = false;
