@@ -6,7 +6,6 @@
   <title>Emma's Birthday Invitation</title>
 
   <script src="https://kit.fontawesome.com/07ee57cae1.js" crossorigin="anonymous"></script>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -209,6 +208,38 @@
       </div>
     </section>
 
+    <section class="gallery-section reveal">
+      <div class="gallery-header">
+        <p class="eyebrow">Gallery</p>
+        <h2>Emma’s Moments</h2>
+        <p class="lead">A glimpse of beautiful memories before the celebration.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-item"><img src="Emma1.JPG" alt="Emma gallery photo 1"></article>
+        <article class="gallery-item"><img src="Emma2.JPG" alt="Emma gallery photo 2"></article>
+        <article class="gallery-item"><img src="Emma3.jpg" alt="Emma gallery photo 3"></article>
+        <article class="gallery-item"><img src="Emma4.jpg" alt="Emma gallery photo 4"></article>
+        <article class="gallery-item"><img src="Emma5.jpg" alt="Emma gallery photo 5"></article>
+        <article class="gallery-item"><img src="Emma6.JPG" alt="Emma gallery photo 6"></article>
+        <article class="gallery-item"><img src="Emma7.jpg" alt="Emma gallery photo 7"></article>
+        <article class="gallery-item"><img src="Emma8.JPG" alt="Emma gallery photo 8"></article>
+        <article class="gallery-item"><img src="Emma9.JPG" alt="Emma gallery photo 9"></article>
+        <article class="gallery-item"><img src="Emma10.JPG" alt="Emma gallery photo 10"></article>
+      </div>
+
+      <div class="gallery-drive-wrapper">
+        <a
+          class="gallery-drive-btn"
+          href="https://drive.google.com/drive/folders/1z9Yx8YljhTe_DgNToR04XBGLNDN_rJij?usp=drive_link"
+          target="_blank"
+          rel="noopener noreferrer">
+          <i class="fa-brands fa-google-drive"></i>
+          View All Photos on Google Drive
+        </a>
+      </div>
+    </section>
+
     <section class="section arrival reveal">
       <div class="section-header">
         <p class="eyebrow">Location</p>
@@ -250,7 +281,7 @@
             <option value="Not Attend">Sorry, I can’t attend</option>
           </select>
 
-          <input type="number" id="guestCount" placeholder="Number of Guests" min="1" max="1">
+          <input type="number" id="guestCount" placeholder="Number of Guests" min="1" max="5">
 
           <textarea id="message" rows="4" placeholder="Message / Wishes"></textarea>
 
@@ -282,6 +313,25 @@
     <p>Website by</p>
     <h3>Jovian Benjamin Koo</h3>
   </footer>
+
+  <div id="galleryModal" class="gallery-modal">
+    <button id="galleryClose" class="gallery-close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <button id="galleryPrev" class="gallery-nav gallery-prev">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="gallery-modal-content">
+      <p id="galleryCounter" class="gallery-counter">1 / 10</p>
+      <img id="galleryModalImg" src="" alt="Gallery preview">
+    </div>
+
+    <button id="galleryNext" class="gallery-nav gallery-next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
 
   <audio id="bg-music" src="song.mp3" loop></audio>
   <script src="script.js"></script>
