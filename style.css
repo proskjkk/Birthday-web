@@ -206,7 +206,7 @@ body {
   }
 }
 
-/* ================= INTRO / YOU ARE INVITED PAGE ================= */
+/* ================= INTRO ================= */
 
 .intro-section {
   position: relative;
@@ -289,7 +289,7 @@ body {
   margin-top: 20px !important;
 }
 
-/* ================= EVENT PAGE ================= */
+/* ================= EVENT ================= */
 
 .event-section {
   position: relative;
@@ -505,14 +505,13 @@ body {
   margin-top: 30px;
 }
 
-/* ================= OUTFIT INSPIRATION ================= */
+/* ================= OUTFIT ================= */
 
 .outfit-section {
   position: relative;
   padding: 82px 20px;
   background:
     linear-gradient(180deg, #ffffff, var(--white-bone));
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
@@ -577,7 +576,7 @@ body {
   transform: scale(1.025);
 }
 
-/* ================= LOCATION PAGE ================= */
+/* ================= LOCATION ================= */
 
 .section {
   padding: 80px 20px;
@@ -664,6 +663,117 @@ body {
   justify-content: center;
 }
 
+/* ================= RSVP ================= */
+
+.rsvp-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 90px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(255,255,255,0.76), rgba(243,246,244,0.92)),
+    url("black.png") center/cover no-repeat;
+}
+
+.rsvp-card {
+  width: min(560px, 94vw);
+  padding: 54px 28px;
+  border-radius: 36px;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.16),
+    inset 0 0 0 1px rgba(255,255,255,0.9);
+  text-align: center;
+}
+
+.rsvp-card h2 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: clamp(34px, 8vw, 54px);
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+.rsvp-form {
+  margin-top: 34px;
+  display: grid;
+  gap: 16px;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1.5px solid rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.9);
+  font-family: "League Spartan", sans-serif;
+  font-size: 17px;
+  color: var(--text-dark);
+  outline: none;
+}
+
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+  border-color: var(--pink-strong);
+  box-shadow: 0 0 0 4px rgba(255,143,163,0.14);
+}
+
+.rsvp-form textarea {
+  resize: none;
+}
+
+.rsvp-btn {
+  margin-top: 8px;
+  min-height: 58px;
+  border: none;
+  border-radius: 999px;
+  background: var(--pink);
+  color: white;
+  font-family: "Cinzel", serif;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(255,192,203,0.42);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.25s ease;
+}
+
+.rsvp-btn:hover {
+  background: var(--pink-strong);
+  transform: translateY(-2px);
+}
+
+.rsvp-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.rsvp-status {
+  min-height: 22px;
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.rsvp-status.success {
+  color: #2f7d4f;
+}
+
+.rsvp-status.error {
+  color: #b83232;
+}
+
 /* ================= MUSIC BUTTON ================= */
 
 .floating-music-btn {
@@ -709,7 +819,6 @@ body {
   transform: translateY(0);
 }
 
-/* Prevent outfit section from disappearing too aggressively */
 .outfit-section.reveal {
   opacity: 1;
   transform: none;
@@ -722,14 +831,11 @@ body {
   text-align: center;
   background: linear-gradient(180deg, #ffffff, var(--white-bone));
   color: var(--text-dark);
-
-  /* FIX: hide initially */
   opacity: 0;
   transform: translateY(40px);
   transition: 0.8s ease;
 }
 
-/* reveal when active */
 .site-footer.show-footer {
   opacity: 1;
   transform: translateY(0);
@@ -763,10 +869,6 @@ body {
   .landing-content h1 {
     font-size: 128px;
     transform: translateY(-115px);
-  }
-
-  .landing-btn {
-    margin-top: 0;
   }
 
   .intro-section {
@@ -823,11 +925,6 @@ body {
     padding: 76px 20px;
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
   .real-map iframe {
     height: 360px;
   }
@@ -850,5 +947,14 @@ body {
 
   .count-box small {
     font-size: 14px;
+  }
+
+  .rsvp-section {
+    padding: 76px 16px;
+  }
+
+  .rsvp-card {
+    padding: 44px 20px;
+    border-radius: 28px;
   }
 }
