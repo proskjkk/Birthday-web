@@ -105,7 +105,7 @@ reveals.forEach(el => observer.observe(el));
 const rsvpForm = document.getElementById("rsvpForm");
 const rsvpStatus = document.getElementById("rsvpStatus");
 
-const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby-WWu5iO4dNgKX0lC76eJzkqvla6e8n0gGz7O5VJHRW-yjPYbF7iTi1-oT9P_qh5ZHrg/exec";
 
 if (rsvpForm) {
   rsvpForm.addEventListener("submit", async function (e) {
