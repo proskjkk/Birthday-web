@@ -100,9 +100,66 @@ const observer = new IntersectionObserver(
 
 reveals.forEach(el => observer.observe(el));
 
+/* ================= RSVP TO GOOGLE SHEETS ================= */
+
+const rsvpForm = document.getElementById("rsvpForm");
+const rsvpStatus = document.getElementById("rsvpStatus");
+
+const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+if (rsvpForm) {
+  rsvpForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const submitBtn = rsvpForm.querySelector(".rsvp-btn");
+
+    const rsvpData = {
+      name: document.getElementById("guestName").value.trim(),
+      attendance: document.getElementById("attendance").value,
+      guestCount: document.getElementById("guestCount").value || "-",
+      message: document.getElementById("message").value.trim() || "-"
+    };
+
+    if (!rsvpData.name || !rsvpData.attendance) {
+      rsvpStatus.textContent = "Please fill in your name and attendance confirmation.";
+      rsvpStatus.className = "rsvp-status error";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending...`;
+
+    rsvpStatus.textContent = "";
+    rsvpStatus.className = "rsvp-status";
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(rsvpData)
+      });
+
+      rsvpStatus.textContent = "Thank you! Your RSVP has been submitted.";
+      rsvpStatus.className = "rsvp-status success";
+
+      rsvpForm.reset();
+
+    } catch (error) {
+      console.log(error);
+      rsvpStatus.textContent = "Sorry, RSVP failed. Please try again.";
+      rsvpStatus.className = "rsvp-status error";
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Submit RSVP`;
+  });
+}
+
 /* ================= FOOTER FIX ================= */
 
-/* Only show footer when near bottom */
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
   const pageHeight = document.body.scrollHeight;
@@ -110,5 +167,7 @@ window.addEventListener("scroll", () => {
 
   if (scrollY + windowHeight > pageHeight - 150) {
     footer.classList.add("show-footer");
+  } else {
+    footer.classList.remove("show-footer");
   }
 });
