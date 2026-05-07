@@ -6,7 +6,6 @@
   <title>Emma's Birthday Invitation</title>
 
   <script src="https://kit.fontawesome.com/07ee57cae1.js" crossorigin="anonymous"></script>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -235,12 +234,42 @@
       </div>
     </section>
 
+    <section class="rsvp-section reveal">
+      <div class="rsvp-card">
+        <p class="eyebrow">RSVP</p>
+        <h2>Will You Attend?</h2>
+        <p class="lead">Please confirm your attendance by filling out the form below.</p>
+
+        <form id="rsvpForm" class="rsvp-form">
+          <input type="text" id="guestName" placeholder="Your Name" required>
+
+          <select id="attendance" required>
+            <option value="">Attendance Confirmation</option>
+            <option value="Attend">Yes, I will attend</option>
+            <option value="Not Attend">Sorry, I can’t attend</option>
+          </select>
+
+          <input type="number" id="guestCount" placeholder="Number of Guests" min="1" max="5">
+
+          <textarea id="message" rows="4" placeholder="Message / Wishes"></textarea>
+
+          <button type="submit" class="rsvp-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            Submit RSVP
+          </button>
+
+          <p id="rsvpStatus" class="rsvp-status"></p>
+        </form>
+      </div>
+    </section>
+
   </div>
-<footer class="site-footer">
-  <p>Website by</p>
-  <h3>Jovian Benjamin Koo</h3>
-</footer>
-  
+
+  <footer class="site-footer">
+    <p>Website by</p>
+    <h3>Jovian Benjamin Koo</h3>
+  </footer>
+
   <audio id="bg-music" src="song.mp3" loop></audio>
   <script src="script.js"></script>
 
