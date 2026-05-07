@@ -64,7 +64,7 @@ function updateCountdown() {
   const minutesEl = document.getElementById("minutes");
   const secondsEl = document.getElementById("seconds");
 
-  if (!daysEl) return;
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
   if (distance <= 0) {
     daysEl.textContent = "0";
@@ -213,6 +213,110 @@ function escapeHTML(text) {
 }
 
 loadGuestMessages();
+
+/* ================= GALLERY ZOOM MODAL ================= */
+
+const galleryImages = Array.from(document.querySelectorAll(".gallery-item img"));
+const galleryModal = document.getElementById("galleryModal");
+const galleryModalImg = document.getElementById("galleryModalImg");
+const galleryClose = document.getElementById("galleryClose");
+const galleryPrev = document.getElementById("galleryPrev");
+const galleryNext = document.getElementById("galleryNext");
+const galleryCounter = document.getElementById("galleryCounter");
+
+let currentGalleryIndex = 0;
+
+function openGallery(index) {
+  if (!galleryModal || !galleryModalImg || !galleryImages.length) return;
+
+  currentGalleryIndex = index;
+  updateGalleryModal();
+
+  galleryModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeGallery() {
+  if (!galleryModal) return;
+
+  galleryModal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function updateGalleryModal() {
+  const currentImage = galleryImages[currentGalleryIndex];
+
+  if (!currentImage || !galleryModalImg || !galleryCounter) return;
+
+  galleryModalImg.src = currentImage.src;
+  galleryModalImg.alt = currentImage.alt;
+
+  galleryCounter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+}
+
+function showPrevGalleryImage() {
+  if (!galleryImages.length) return;
+
+  currentGalleryIndex =
+    currentGalleryIndex === 0
+      ? galleryImages.length - 1
+      : currentGalleryIndex - 1;
+
+  updateGalleryModal();
+}
+
+function showNextGalleryImage() {
+  if (!galleryImages.length) return;
+
+  currentGalleryIndex =
+    currentGalleryIndex === galleryImages.length - 1
+      ? 0
+      : currentGalleryIndex + 1;
+
+  updateGalleryModal();
+}
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    openGallery(index);
+  });
+});
+
+if (galleryClose) {
+  galleryClose.addEventListener("click", closeGallery);
+}
+
+if (galleryPrev) {
+  galleryPrev.addEventListener("click", showPrevGalleryImage);
+}
+
+if (galleryNext) {
+  galleryNext.addEventListener("click", showNextGalleryImage);
+}
+
+if (galleryModal) {
+  galleryModal.addEventListener("click", e => {
+    if (e.target === galleryModal) {
+      closeGallery();
+    }
+  });
+}
+
+document.addEventListener("keydown", e => {
+  if (!galleryModal || !galleryModal.classList.contains("active")) return;
+
+  if (e.key === "Escape") {
+    closeGallery();
+  }
+
+  if (e.key === "ArrowLeft") {
+    showPrevGalleryImage();
+  }
+
+  if (e.key === "ArrowRight") {
+    showNextGalleryImage();
+  }
+});
 
 /* ================= FOOTER FIX ================= */
 
