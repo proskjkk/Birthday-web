@@ -1111,6 +1111,19 @@ body {
   color: #000;
 }
 
+.footer-phone {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #777;
+  text-decoration: none;
+}
+
+.footer-phone:hover {
+  color: var(--pink-strong);
+}
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
