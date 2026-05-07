@@ -331,3 +331,25 @@ window.addEventListener("scroll", () => {
     footer.classList.remove("show-footer");
   }
 });
+
+/* ================= PAUSE MUSIC WHEN TAB CLOSED / MINIMIZED ================= */
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    music.pause();
+    floatingBtn.classList.remove("active");
+    isPlaying = false;
+  }
+});
+
+window.addEventListener("pagehide", () => {
+  music.pause();
+  floatingBtn.classList.remove("active");
+  isPlaying = false;
+});
+
+window.addEventListener("blur", () => {
+  music.pause();
+  floatingBtn.classList.remove("active");
+  isPlaying = false;
+});
