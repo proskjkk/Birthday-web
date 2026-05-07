@@ -9,6 +9,8 @@ const footer = document.querySelector(".site-footer");
 
 let isPlaying = false;
 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby-WWu5iO4dNgKX0lC76eJzkqvla6e8n0gGz7O5VJHRW-yjPYbF7iTi1-oT9P_qh5ZHrg/exec";
+
 /* ================= OPEN INVITATION ================= */
 
 openInvitation.addEventListener("click", async () => {
@@ -105,8 +107,6 @@ reveals.forEach(el => observer.observe(el));
 const rsvpForm = document.getElementById("rsvpForm");
 const rsvpStatus = document.getElementById("rsvpStatus");
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby-WWu5iO4dNgKX0lC76eJzkqvla6e8n0gGz7O5VJHRW-yjPYbF7iTi1-oT9P_qh5ZHrg/exec";
-
 if (rsvpForm) {
   rsvpForm.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -147,6 +147,10 @@ if (rsvpForm) {
 
       rsvpForm.reset();
 
+      setTimeout(() => {
+        loadGuestMessages();
+      }, 1200);
+
     } catch (error) {
       console.log(error);
       rsvpStatus.textContent = "Sorry, RSVP failed. Please try again.";
@@ -157,6 +161,58 @@ if (rsvpForm) {
     submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Submit RSVP`;
   });
 }
+
+/* ================= SHOW GUEST MESSAGES ================= */
+
+const guestMessagesContainer = document.getElementById("guestMessages");
+
+async function loadGuestMessages() {
+  if (!guestMessagesContainer) return;
+
+  try {
+    const response = await fetch(GOOGLE_SCRIPT_URL);
+    const messages = await response.json();
+
+    guestMessagesContainer.innerHTML = "";
+
+    if (!messages.length) {
+      guestMessagesContainer.innerHTML = `
+        <p class="loading-message">No messages yet.</p>
+      `;
+      return;
+    }
+
+    messages.forEach(item => {
+      const card = document.createElement("article");
+      card.className = "guest-message-card";
+
+      card.innerHTML = `
+        <p class="guest-message-text">“${escapeHTML(item.message)}”</p>
+        <h3>${escapeHTML(item.name)}</h3>
+        <span>${escapeHTML(item.attendance)}</span>
+      `;
+
+      guestMessagesContainer.appendChild(card);
+    });
+
+  } catch (error) {
+    console.log(error);
+    guestMessagesContainer.innerHTML = `
+      <p class="loading-message">Unable to load messages.</p>
+    `;
+  }
+}
+
+function escapeHTML(text) {
+  return String(text)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+loadGuestMessages();
 
 /* ================= FOOTER FIX ================= */
 
