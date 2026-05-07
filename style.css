@@ -1285,5 +1285,23 @@ body {
 
   .guest-messages {
     grid-template-columns: 1fr;
+
+  .gallery-section.reveal {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.gallery-item {
+  animation: galleryFastFade 0.35s ease both;
+}
+
+@keyframes galleryFastFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
