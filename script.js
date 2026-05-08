@@ -318,6 +318,28 @@ document.addEventListener("keydown", e => {
   }
 });
 
+/* ================= PAUSE MUSIC WHEN TAB CLOSED / MINIMIZED ================= */
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    music.pause();
+    floatingBtn.classList.remove("active");
+    isPlaying = false;
+  }
+});
+
+window.addEventListener("pagehide", () => {
+  music.pause();
+  floatingBtn.classList.remove("active");
+  isPlaying = false;
+});
+
+window.addEventListener("blur", () => {
+  music.pause();
+  floatingBtn.classList.remove("active");
+  isPlaying = false;
+});
+
 /* ================= FOOTER FIX ================= */
 
 window.addEventListener("scroll", () => {
@@ -330,31 +352,4 @@ window.addEventListener("scroll", () => {
   } else {
     footer.classList.remove("show-footer");
   }
-});
-
-/* ================= PAUSE MUSIC WHEN TAB CLOSED / MINIMIZED ================= */
-
-let wasPlayingBeforeHidden = false;
-
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    wasPlayingBeforeHidden = isPlaying;
-    music.pause();
-    floatingBtn.classList.remove("active");
-    isPlaying = false;
-  }
-});
-
-window.addEventListener("pagehide", () => {
-  wasPlayingBeforeHidden = isPlaying;
-  music.pause();
-  floatingBtn.classList.remove("active");
-  isPlaying = false;
-});
-
-window.addEventListener("blur", () => {
-  wasPlayingBeforeHidden = isPlaying;
-  music.pause();
-  floatingBtn.classList.remove("active");
-  isPlaying = false;
 });
