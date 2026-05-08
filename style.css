@@ -243,13 +243,16 @@ body {
 }
 
 .portrait-frame {
+  position: relative;
   width: min(300px, 76vw);
   height: 400px;
   margin: 0 auto 34px;
-  padding: 5px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ffffff, var(--pink));
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.28),
+    0 0 40px rgba(0,0,0,0.12);
 }
 
 .portrait-frame img {
@@ -257,7 +260,69 @@ body {
   height: 100%;
   display: block;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 18px;
+}
+
+/* ================= PORTRAIT FLOWERS ================= */
+
+.portrait-decoration {
+  position: absolute;
+  z-index: 3;
+  color: rgba(255,255,255,0.92);
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.18));
+  animation: flowerFloat 5s ease-in-out infinite;
+}
+
+.portrait-decoration i {
+  font-size: 54px;
+}
+
+.portrait-flower-1 {
+  top: 180px;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.portrait-flower-2 {
+  top: 340px;
+  right: 10%;
+  animation-delay: 1.2s;
+}
+
+.portrait-flower-3 {
+  top: 510px;
+  left: 14%;
+  animation-delay: 2.2s;
+}
+
+@keyframes flowerFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+  }
+}
+
+.reveal .portrait-decoration {
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.reveal.show .portrait-decoration {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .birthday-name {
@@ -387,6 +452,10 @@ body {
   justify-content: center;
   gap: 26px;
   margin-top: 10px;
+}
+
+.dress-colors.single-color {
+  justify-content: center;
 }
 
 .dress-color {
@@ -584,6 +653,10 @@ body {
     linear-gradient(180deg, var(--white-bone), #ffffff);
 }
 
+.gallery-section.reveal {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
 .gallery-header {
   max-width: 760px;
   margin: 0 auto 42px;
@@ -617,6 +690,19 @@ body {
     0 18px 46px rgba(60,30,35,0.14),
     0 0 0 1px rgba(255,255,255,0.9);
   cursor: zoom-in;
+  animation: galleryFastFade 0.35s ease both;
+}
+
+@keyframes galleryFastFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .gallery-item img {
@@ -1124,6 +1210,7 @@ body {
 .footer-phone:hover {
   color: var(--pink-strong);
 }
+
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
@@ -1143,6 +1230,25 @@ body {
   .portrait-frame {
     width: 250px;
     height: 330px;
+  }
+
+  .portrait-decoration i {
+    font-size: 40px;
+  }
+
+  .portrait-flower-1 {
+    top: 210px;
+    left: 2%;
+  }
+
+  .portrait-flower-2 {
+    top: 330px;
+    right: 2%;
+  }
+
+  .portrait-flower-3 {
+    top: 500px;
+    left: 4%;
   }
 
   .event-card {
@@ -1298,23 +1404,5 @@ body {
 
   .guest-messages {
     grid-template-columns: 1fr;
-
-  .gallery-section.reveal {
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.gallery-item {
-  animation: galleryFastFade 0.35s ease both;
-}
-
-@keyframes galleryFastFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
