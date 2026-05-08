@@ -68,11 +68,14 @@ body {
 }
 
 .landing-content h1 {
-  color: #111;
-  -webkit-text-stroke: 0.8px rgba(255,255,255,0.75);
-  text-shadow:
-    0 3px 12px rgba(255,255,255,0.75),
-    0 8px 24px rgba(0,0,0,0.35);
+  margin: 0;
+  font-family: "Grey Qo", cursive;
+  font-size: clamp(100px, 22vw, 190px);
+  color: #000;
+  line-height: 0.85;
+  letter-spacing: 2px;
+  font-weight: 400;
+  transform: translateY(-95px);
 }
 
 .landing-btn {
