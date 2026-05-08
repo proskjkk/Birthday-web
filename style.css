@@ -71,13 +71,16 @@ body {
   margin: 0;
   font-family: "Grey Qo", cursive;
   font-size: clamp(100px, 22vw, 190px);
-  color: #000;
+  color: #ffffff;
   line-height: 0.85;
   letter-spacing: 2px;
   font-weight: 400;
   transform: translateY(-95px);
-}
 
+  text-shadow:
+    0 3px 10px rgba(0,0,0,0.65),
+    0 10px 28px rgba(0,0,0,0.45);
+}
 .landing-btn {
   margin-top: 0;
   padding: 16px 48px;
