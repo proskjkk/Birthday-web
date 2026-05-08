@@ -42,7 +42,17 @@ body {
   position: absolute;
   inset: 0;
   background: url("black.png") center/cover no-repeat;
-  filter: brightness(1.05);
+  filter: brightness(1.08) blur(1.2px);
+  transform: scale(1.02);
+}
+
+.landing-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 
 .landing-content {
