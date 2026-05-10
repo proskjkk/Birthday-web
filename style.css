@@ -79,11 +79,11 @@ body {
 
 .landing-content h1 {
   margin: 0;
-  font-family: "Grey Qo", cursive;
-  font-size: clamp(100px, 22vw, 190px);
+  font-family: "Ruthie", cursive;
+  font-size: clamp(110px, 23vw, 210px);
   color: #000;
-  line-height: 0.85;
-  letter-spacing: 2px;
+  line-height: 0.9;
+  letter-spacing: 1px;
   font-weight: 400;
   transform: translateY(-95px);
 }
