@@ -390,10 +390,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.58), rgba(255,255,255,0.58)),
-    url("14.jpeg") center center/cover no-repeat;
-  filter: blur(2px);
-  transform: scale(1.05);
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("14.jpeg") center/cover no-repeat;
 }
 
 .event-card {
