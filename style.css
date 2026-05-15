@@ -390,8 +390,22 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
-    url("black.png") center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,0.58), rgba(255,255,255,0.58)),
+    url("14.jpeg") center center/cover no-repeat;
+  filter: blur(2px);
+  transform: scale(1.05);
+}
+
+.event-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.45),
+      rgba(255,255,255,0.62)
+    );
 }
 
 .event-card {
