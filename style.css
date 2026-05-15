@@ -41,7 +41,7 @@ body {
 .landing-bg {
   position: absolute;
   inset: 0;
-  background: url("black.png") center/cover no-repeat;
+  background: url("19.jpeg") center/cover no-repeat;
   filter: brightness(1.08) blur(1.2px);
   transform: scale(1.02);
 }
