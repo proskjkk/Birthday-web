@@ -71,6 +71,7 @@ body {
 .landing-small {
   margin: 0;
   font-family: "Cinzel", serif;
+  font-weight: bold;
   font-size: clamp(20px, 5vw, 36px);
   letter-spacing: 6px;
   color: #444;
