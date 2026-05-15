@@ -79,8 +79,8 @@ body {
 
 .landing-content h1 {
   margin: 0;
-  font-family: "Ruthie", cursive;
-  font-size: clamp(110px, 23vw, 210px);
+   font-family: "Grey Qo", cursive;
+  font-size: clamp(72px, 15vw, 130px);
   color: #000;
   line-height: 0.9;
   letter-spacing: 1px;
