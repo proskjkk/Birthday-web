@@ -334,12 +334,6 @@ window.addEventListener("pagehide", () => {
   isPlaying = false;
 });
 
-window.addEventListener("blur", () => {
-  music.pause();
-  floatingBtn.classList.remove("active");
-  isPlaying = false;
-});
-
 /* ================= FOOTER FIX ================= */
 
 window.addEventListener("scroll", () => {
